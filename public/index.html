@@ -1,0 +1,92 @@
+<!-- index.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Sensor Analytics Dashboard</title>
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/styles.css">
+  <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <h1>Sensor Analytics Dashboard</h1>
+    <button id="query-btn" class="query-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+      Ask Query
+    </button>
+  </header>
+
+  <!-- Sensor Type Filter Buttons -->
+  <nav class="sensor-filter">
+    <button class="filter-btn active" data-type="all">All Sensors</button>
+    <button class="filter-btn" data-type="temperature">Temperature</button>
+    <button class="filter-btn" data-type="humidity">Humidity</button>
+    <button class="filter-btn" data-type="pressure">Pressure</button>
+    <button class="filter-btn" data-type="motion">Motion</button>
+    <button class="filter-btn" data-type="light">Light</button>
+  </nav>
+
+  <!-- View Toggle -->
+  <div class="view-toggle">
+    <button id="gauge-view-btn" class="toggle-btn active">Gauge View</button>
+    <button id="list-view-btn" class="toggle-btn">List View</button>
+  </div>
+
+  <!-- Main Dashboard - Gauge View -->
+  <main id="gauge-dashboard" class="dashboard-container">
+    <div id="gauge-grid" class="gauge-grid">
+      <!-- Gauges will be dynamically inserted here -->
+    </div>
+  </main>
+
+  <!-- List View Dashboard -->
+  <main id="list-dashboard" class="dashboard-container">
+    <div class="sensor-list">
+      <div class="list-header">
+        <span>Sensor</span>
+        <span>Type</span>
+        <span>Value</span>
+        <span>Status</span>
+        <span>Last Update</span>
+      </div>
+      <div id="sensor-list-items" class="list-items">
+        <!-- List items will be dynamically inserted here -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Query Modal -->
+  <div id="query-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Ask a Question</h2>
+        <button id="close-modal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <textarea id="query-input" placeholder="Ask anything about your sensor data... (e.g., 'What was the average temperature yesterday?')"></textarea>
+        <div id="query-result" class="query-result hidden"></div>
+      </div>
+      <div class="modal-footer">
+        <button id="submit-query" class="submit-btn">Submit Query</button>
+        <button id="clear-query" class="clear-btn">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Status Indicator -->
+  <div id="connection-status" class="status-indicator">
+    <span class="status-dot"></span>
+    <span id="status-text">Connected</span>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

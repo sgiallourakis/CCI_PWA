@@ -1,0 +1,15 @@
+{
+  "name": "Sensor Analytics Dashboard",
+  "short_name": "Sensors",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f5f0",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src":"/icons/leaf_icon.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}
